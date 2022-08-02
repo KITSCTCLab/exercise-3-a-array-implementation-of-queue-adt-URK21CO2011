@@ -29,6 +29,10 @@ class Solution:
           True if it is empty, else returns False.
         """
         # Write your code here
+        if (self.top == -1):
+            return True
+        else:
+            return False
 
     def is_queue_empty(self):
         """
@@ -37,7 +41,10 @@ class Solution:
           True if it is empty, else returns False.
         """
         # Write your code here
-
+        if (self.front == -1):
+            return True
+        else:
+            return False
     def is_stack_full(self):
         """
         Check whether the stack is full.
@@ -45,7 +52,10 @@ class Solution:
           True if it is full, else returns False.
         """
         # Write your code here
-
+        if (self.top = size -1):
+            return True
+        else:
+            return False
     def is_queue_full(self):
         """
         Check whether the queue is full.
@@ -53,6 +63,10 @@ class Solution:
           True if it is full, else returns False.
         """
         # Write your code here
+        if (self.rear == size -1):
+            return True
+        else:
+            return False
 
     def push_character(self, character):
         """
@@ -61,6 +75,11 @@ class Solution:
             character: A character that will be pushed to the stack.
         """
         # Write your code here
+        if self.is_stack_full():
+            print("the stack is overflowing")
+        else:
+            self.top += 1
+            self.stack.append(character)
 
     def enqueue_character(self, character):
         """
@@ -69,7 +88,10 @@ class Solution:
             character: A character that will be enqueued to queue.
         """
         # Write your code here
-
+        if self.is_queue_full():
+            print(" the queue is full")
+        else:
+            
     def pop_character(self):
         """
         Do pop operation if the stack is not empty.
