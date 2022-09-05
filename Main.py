@@ -1,4 +1,5 @@
 class Solution:
+ 
  """This class implements linear queue.
  Attributes:
  stack: A list which maintains the content of stack.
@@ -11,92 +12,103 @@ class Solution:
 
  # Write your code here
  def __init__(self, size):
+  self.stack = []
+  self.queue = []
+  self.size = size
+  self.top = -1
+  self.rear = -1
+  self.front = -1
  """Inits Solution with stack, queue, size, top, front and rear.
  Arguments:
  size: An integer to set the size of stack and queue.
  """
- self.stack = []
- self.queue = []
- self.size = size
- self.top = -1
- self.rear = -1
- self.front = -1
+ 
 
  def is_stack_empty(self):
+   return self.top == -1
 
  """
  Check whether the stack is empty.
  Returns:
  True if it is empty, else returns False.
  """
- return self.top == -1
+  
 
  def is_queue_empty(self):
+   return self.front == -1 or self.front > self.rear
  """
  Check whether the queue is empty.
  Returns:
  True if it is empty, else returns False.
  """
- return self.front == -1 or self.front > self.rear
+
 
  def is_stack_full(self):
+  return self.top == self.size - 1
  """
  Check whether the stack is full.
  Returns:
  True if it is full, else returns False.
  """
- return self.top == self.size - 1
+ 
 
  def is_queue_full(self):
+   return self.rear == self.size - 1
  """
  Check whether the queue is full.
  Returns:
  True if it is full, else returns False.
  """
- return self.rear == self.size - 1
+
 
  def push_character(self, character):
+  if not self.is_stack_full():
+   self.stack.append(character)
+   self.top += 1
  """
  Push the character to stack, if stack is not full.
  Arguments:
  character: A character that will be pushed to the stack.
  """
- if not self.is_stack_full():
- self.stack.append(character)
- self.top += 1
+ 
 
  def enqueue_character(self, character):
+  if not self.is_queue_full():
+   if self.front == -1:
+    self.front = 0
+    self.rear += 1
+    self.queue.append(character)
  """
  Enqueue the character to queue, if queue is not full.
  Arguments:
  character: A character that will be enqueued to queue.
  """
- if not self.is_queue_full():
- if self.front == -1:
- self.front = 0
- self.rear += 1
- self.queue.append(character)
+ 
 
  def pop_character(self):
+  if not self.is_stack_empty():
+   self.top -= 1
+   return self.stack.pop(self.top + 1)
+ 
 
  """
  Do pop operation if the stack is not empty.
  Returns:
  The data that is popped out if the stack is not empty.
  """
- if not self.is_stack_empty():
- self.top -= 1
- return self.stack.pop(self.top + 1)
+ 
 
  def dequeue_character(self):
+  if not self.is_queue_empty():
+   self.front += 1
+   return self.queue[self.front - 1] 
+ 
  """
  Do dequeue operation if the queue is not empty.
  Returns:
  The data that is dequeued if the queue is not empty.
  """
- if not self.is_queue_empty():
- self.front += 1
- return self.queue[self.front - 1] 
+
  
 
 
