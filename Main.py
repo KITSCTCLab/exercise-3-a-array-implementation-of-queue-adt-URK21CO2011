@@ -76,8 +76,8 @@ class Solution:
   if not self.is_queue_full():
    if self.front == -1:
     self.front = 0
-    self.rear += 1
-    self.queue.append(character)
+   self.rear += 1
+   self.queue.append(character)
  """
  Enqueue the character to queue, if queue is not full.
  Arguments:
