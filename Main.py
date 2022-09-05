@@ -125,7 +125,8 @@ solution = Solution(length_of_text)
 for index in range(length_of_text):
  solution.push_character(text[index])
  solution.enqueue_character(text[index])
- is_palindrome = True
+ 
+is_palindrome = True
 '''
 pop the top character from stack
 dequeue the first character from queue
